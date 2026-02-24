@@ -1,0 +1,30 @@
+/* Additional component-specific styles */
+
+.upload-btn {
+  background: #2563eb !important;
+  color: white !important;
+}
+
+.upload-btn:hover {
+  background: #1d4ed8 !important;
+}
+
+.loading, .error, .no-resources {
+  text-align: center;
+  padding: 2rem;
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+.error {
+  color: #dc2626;
+  background: #fef2f2;
+  border-radius: 6px;
+  margin: 1rem 0;
+}
+
+.no-resources {
+  background: #f9fafb;
+  border: 2px dashed #d1d5db;
+  border-radius: 8px;
+}
