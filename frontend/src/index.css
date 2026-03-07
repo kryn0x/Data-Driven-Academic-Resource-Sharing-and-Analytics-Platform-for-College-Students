@@ -183,3 +183,81 @@ body {
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
+/* Cool Button Animation Classes */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.py-2\.5 { padding-top: 0.625rem; padding-bottom: 0.625rem; }
+.space-x-2 > * + * { margin-left: 0.5rem; }
+.w-4 { width: 1rem; }
+.h-4 { height: 1rem; }
+.w-20 { width: 5rem; }
+.h-20 { height: 5rem; }
+.h-full { height: 100%; }
+.w-full { width: 100%; }
+.transition-all { transition-property: all; }
+.transition-transform { transition-property: transform; }
+.duration-100 { transition-duration: 100ms; }
+.duration-300 { transition-duration: 300ms; }
+.ease-out { transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+.ease { transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); }
+.transform { transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)); }
+.translate-x-0 { --tw-translate-x: 0px; }
+.-translate-x-full { --tw-translate-x: -100%; }
+.translate-x-full { --tw-translate-x: 100%; }
+.-skew-x-12 { --tw-skew-x: -12deg; }
+.skew-x-12 { --tw-skew-x: 12deg; }
+.rotate-12 { --tw-rotate: 12deg; }
+.rotate-180 { --tw-rotate: 180deg; }
+.scale-105 { --tw-scale-x: 1.05; --tw-scale-y: 1.05; }
+.overflow-hidden { overflow: hidden; }
+.invisible { visibility: hidden; }
+.bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-stops)); }
+.from-blue-600 { --tw-gradient-from: #2563eb; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(37, 99, 235, 0)); }
+.from-purple-600 { --tw-gradient-from: #9333ea; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(147, 51, 234, 0)); }
+.to-purple-600 { --tw-gradient-to: #9333ea; }
+.to-blue-600 { --tw-gradient-to: #2563eb; }
+.bg-blue-50 { background-color: #eff6ff; }
+.bg-blue-200 { background-color: #bfdbfe; }
+.border-blue-600 { border-color: #2563eb; }
+.text-blue-700 { color: #1d4ed8; }
+
+/* Hover Effects */
+.hover\:bg-blue-100:hover { background-color: #dbeafe; }
+.hover\:bg-blue-200:hover { background-color: #bfdbfe; }
+.hover\:text-blue-600:hover { color: #2563eb; }
+.hover\:text-blue-700:hover { color: #1d4ed8; }
+.hover\:text-white:hover { color: #ffffff; }
+.hover\:scale-105:hover { --tw-scale-x: 1.05; --tw-scale-y: 1.05; }
+.hover\:skew-x-12:hover { --tw-skew-x: 12deg; }
+.hover\:-skew-x-12:hover { --tw-skew-x: -12deg; }
+.hover\:rotate-12:hover { --tw-rotate: 12deg; }
+.hover\:rotate-180:hover { --tw-rotate: 180deg; }
+.hover\:translate-x-0:hover { --tw-translate-x: 0px; }
+.hover\:translate-x-full:hover { --tw-translate-x: 100%; }
+.hover\:from-purple-600:hover { --tw-gradient-from: #9333ea; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(147, 51, 234, 0)); }
+.hover\:from-blue-600:hover { --tw-gradient-from: #2563eb; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(37, 99, 235, 0)); }
+.hover\:to-blue-600:hover { --tw-gradient-to: #2563eb; }
+.hover\:to-purple-600:hover { --tw-gradient-to: #9333ea; }
+
+/* Group Hover Effects */
+.group:hover .group-hover\:bg-blue-100 { background-color: #dbeafe; }
+.group:hover .group-hover\:bg-blue-200 { background-color: #bfdbfe; }
+.group:hover .group-hover\:skew-x-12 { --tw-skew-x: 12deg; }
+.group:hover .group-hover\:-skew-x-12 { --tw-skew-x: -12deg; }
+.group:hover .group-hover\:rotate-12 { --tw-rotate: 12deg; }
+.group:hover .group-hover\:rotate-180 { --tw-rotate: 180deg; }
+.group:hover .group-hover\:mb-8 { margin-bottom: 2rem; }
+.group:hover .group-hover\:translate-x-0 { --tw-translate-x: 0px; }
+.group:hover .group-hover\:translate-x-full { --tw-translate-x: 100%; }
+.group:hover .group-hover\:from-purple-600 { --tw-gradient-from: #9333ea; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(147, 51, 234, 0)); }
+.group:hover .group-hover\:from-blue-600 { --tw-gradient-from: #2563eb; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(37, 99, 235, 0)); }
+.group:hover .group-hover\:to-blue-600 { --tw-gradient-to: #2563eb; }
+.group:hover .group-hover\:to-purple-600 { --tw-gradient-to: #9333ea; }
+
+/* Additional utility classes */
+.inline-flex { display: inline-flex; }
+.justify-center { justify-content: center; }
+.bottom-0 { bottom: 0; }
+.left-0 { left: 0; }
+.hidden { display: none; }
