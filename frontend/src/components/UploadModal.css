@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(74, 74, 74, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,11 +13,12 @@
 
 .modal-content {
   background: white;
-  border-radius: 8px;
+  border-radius: 12px;
   width: 90%;
   max-width: 500px;
   max-height: 90vh;
   overflow-y: auto;
+  border: 1px solid #CBCBCB;
 }
 
 .modal-header {
@@ -25,12 +26,12 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #CBCBCB;
 }
 
 .modal-header h2 {
   margin: 0;
-  color: #1f2937;
+  color: #4A4A4A;
 }
 
 .close-btn {
@@ -38,7 +39,7 @@
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
-  color: #6b7280;
+  color: #6D8196;
   padding: 0;
   width: 30px;
   height: 30px;
@@ -48,7 +49,7 @@
 }
 
 .close-btn:hover {
-  color: #374151;
+  color: #4A4A4A;
 }
 
 .upload-form {
@@ -62,6 +63,7 @@
   border-radius: 6px;
   margin-bottom: 1rem;
   font-size: 0.875rem;
+  border: 1px solid #fecaca;
 }
 
 .form-group {
@@ -78,24 +80,25 @@
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
-  color: #374151;
+  color: #4A4A4A;
 }
 
 .form-group input,
 .form-group select {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #d1d5db;
+  border: 1px solid #CBCBCB;
   border-radius: 6px;
   font-size: 1rem;
   transition: border-color 0.2s;
+  background: white;
 }
 
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #6D8196;
+  box-shadow: 0 0 0 3px rgba(109, 129, 150, 0.1);
 }
 
 .form-group input[type="file"] {
@@ -108,13 +111,13 @@
   justify-content: flex-end;
   margin-top: 1.5rem;
   padding-top: 1rem;
-  border-top: 1px solid #e5e7eb;
+  border-top: 1px solid #CBCBCB;
 }
 
 .cancel-btn {
-  background: #f9fafb;
-  color: #374151;
-  border: 1px solid #d1d5db;
+  background: #FFFFE3;
+  color: #4A4A4A;
+  border: 1px solid #CBCBCB;
   padding: 0.75rem 1.5rem;
   border-radius: 6px;
   cursor: pointer;
@@ -123,11 +126,11 @@
 }
 
 .cancel-btn:hover {
-  background: #f3f4f6;
+  background: #CBCBCB;
 }
 
 .submit-btn {
-  background: #2563eb;
+  background: #6D8196;
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -138,10 +141,10 @@
 }
 
 .submit-btn:hover:not(:disabled) {
-  background: #1d4ed8;
+  background: #4A4A4A;
 }
 
 .submit-btn:disabled {
-  background: #9ca3af;
+  background: #CBCBCB;
   cursor: not-allowed;
 }

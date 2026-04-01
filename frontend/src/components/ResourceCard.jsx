@@ -17,7 +17,7 @@ const ResourceCard = ({ resource, onDeleteSuccess }) => {
     }
   };
   return (
-    <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 p-6">
+    <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-200 p-6 border border-gray-200">
       <div className="flex justify-between items-start mb-4">
         <h3 className="text-xl font-semibold text-gray-900 flex-1 mr-4">
           {resource.title}
@@ -28,12 +28,12 @@ const ResourceCard = ({ resource, onDeleteSuccess }) => {
       </div>
       
       <div className="mb-4">
-        <p className="text-gray-700 font-medium mb-1">{resource.subject}</p>
-        <p className="text-gray-500 text-sm">{resource.type}</p>
+        <p className="text-gray-900 font-medium mb-1">{resource.subject}</p>
+        <p className="text-gray-600 text-sm">{resource.type}</p>
       </div>
       {resource.studySuggestions && resource.studySuggestions.length > 0 && (
         <div className="mb-4">
-          <p className="text-xs font-semibold text-gray-500 mb-2 uppercase tracking-wide">Focus Topics</p>
+          <p className="text-xs font-semibold text-gray-600 mb-2 uppercase tracking-wide">Focus Topics</p>
           <div className="flex flex-wrap gap-2">
             {resource.studySuggestions
               .filter(s => s.priority === 'High')
@@ -41,9 +41,9 @@ const ResourceCard = ({ resource, onDeleteSuccess }) => {
               .map((suggestion, index) => (
                 <span 
                   key={index} 
-                  className="bg-red-50 text-red-700 border border-red-200 px-2 py-1 rounded-md text-xs font-medium"
+                  className="bg-red-100 text-red-700 px-2 py-1 rounded-md text-xs font-medium"
                 >
-                  🔥 {suggestion.topic}
+                  {suggestion.topic}
                 </span>
               ))}
           </div>
@@ -56,7 +56,7 @@ const ResourceCard = ({ resource, onDeleteSuccess }) => {
             {resource.keywords.map((keyword, index) => (
               <span 
                 key={index} 
-                className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-medium"
+                className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-medium border border-blue-200"
               >
                 {keyword}
               </span>
@@ -65,8 +65,8 @@ const ResourceCard = ({ resource, onDeleteSuccess }) => {
         </div>
       )}
       
-      <div className="flex justify-between items-center pt-4 border-t border-gray-100">
-        <span className="text-gray-500 text-sm">
+      <div className="flex justify-between items-center pt-4 border-t border-gray-200">
+        <span className="text-gray-600 text-sm">
           {new Date(resource.uploadDate).toLocaleDateString()}
         </span>
         <div className="flex flex-wrap gap-2 justify-end">
@@ -80,7 +80,7 @@ const ResourceCard = ({ resource, onDeleteSuccess }) => {
           </a>
           <Link 
             to={`/resource/${resource._id}`}
-            className="bg-gray-100 text-gray-700 px-3 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-200 text-sm font-medium"
+            className="bg-gray-200 text-gray-900 px-3 py-2 rounded-lg hover:bg-gray-300 transition-colors duration-200 text-sm font-medium"
           >
             Details
           </Link>
