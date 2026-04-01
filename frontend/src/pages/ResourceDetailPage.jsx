@@ -93,37 +93,37 @@ const ResourceDetailPage = () => {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <main className="max-w-7xl mx-auto px-6 py-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left Column - Resource Details */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-xl shadow-md p-8">
+            <div className="bg-white rounded-xl shadow-md p-6">
               <div className="flex justify-between items-start mb-6">
                 <h1 className="text-3xl font-bold text-gray-900">{resource.title}</h1>
-                <span className="bg-blue-600 text-white px-4 py-2 rounded-full font-medium">
+                <span className="bg-blue-600 text-white px-4 py-2 rounded-full font-medium text-sm">
                   {resource.year}
                 </span>
               </div>
 
-              <div className="grid grid-cols-2 gap-6 mb-8">
+              <div className="grid grid-cols-2 gap-4 mb-6">
                 <div>
-                  <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-2">Subject</h3>
-                  <p className="text-lg text-gray-900">{resource.subject}</p>
+                  <h3 className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Subject</h3>
+                  <p className="text-base text-gray-900 font-medium">{resource.subject}</p>
                 </div>
                 <div>
-                  <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-2">Type</h3>
-                  <p className="text-lg text-gray-900">{resource.type}</p>
+                  <h3 className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-2">Type</h3>
+                  <p className="text-base text-gray-900 font-medium">{resource.type}</p>
                 </div>
               </div>
 
               {resource.keywords && resource.keywords.length > 0 && (
-                <div className="mb-8">
-                  <h3 className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Keywords</h3>
+                <div className="mb-6">
+                  <h3 className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-3">Keywords</h3>
                   <div className="flex flex-wrap gap-2">
                     {resource.keywords.map((keyword, index) => (
                       <span 
                         key={index} 
-                        className="bg-blue-100 text-blue-600 px-4 py-2 rounded-full font-medium"
+                        className="bg-blue-100 text-blue-700 px-3 py-1.5 rounded-full text-sm font-medium"
                       >
                         {keyword}
                       </span>
@@ -137,7 +137,7 @@ const ResourceDetailPage = () => {
                   href={`http://localhost:5000/uploads/${resource.filename}`} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium"
+                  className="inline-flex items-center bg-blue-600 text-white px-5 py-2.5 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium text-sm"
                 >
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -147,12 +147,12 @@ const ResourceDetailPage = () => {
                 
                 <button
                   onClick={handleDelete}
-                  className="inline-flex items-center bg-red-50 text-red-600 px-4 py-3 rounded-lg hover:bg-red-100 transition-colors duration-200 font-medium"
+                  className="inline-flex items-center bg-red-50 text-red-600 px-4 py-2.5 rounded-lg hover:bg-red-100 transition-colors duration-200 font-medium text-sm"
                 >
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                   </svg>
-                  Delete Resource
+                  Delete
                 </button>
               </div>
             </div>
@@ -163,11 +163,11 @@ const ResourceDetailPage = () => {
             {/* Top Keywords Analytics */}
             <div className="bg-white rounded-xl shadow-md p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Top Keywords</h3>
-              <div className="bg-gray-100 h-40 rounded-lg flex items-center justify-center mb-4">
-                <p className="text-gray-500">Chart visualization coming soon</p>
+              <div className="bg-gray-100 h-32 rounded-lg flex items-center justify-center mb-3">
+                <p className="text-sm text-gray-500">Chart visualization</p>
               </div>
-              <p className="text-sm text-gray-600">
-                Keyword frequency analysis helps identify the most important topics in this resource.
+              <p className="text-xs text-gray-600">
+                Keyword frequency analysis helps identify important topics.
               </p>
             </div>
 
@@ -177,19 +177,19 @@ const ResourceDetailPage = () => {
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-500">Uploaded:</span>
-                  <span className="text-gray-900">
+                  <span className="text-gray-900 font-medium">
                     {new Date(resource.uploadDate).toLocaleDateString()}
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-500">File Size:</span>
-                  <span className="text-gray-900">
+                  <span className="text-gray-900 font-medium">
                     {(resource.fileSize / 1024 / 1024).toFixed(2)} MB
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-500">Keywords Found:</span>
-                  <span className="text-gray-900">
+                  <span className="text-gray-500">Keywords:</span>
+                  <span className="text-gray-900 font-medium">
                     {resource.keywords ? resource.keywords.length : 0}
                   </span>
                 </div>
@@ -200,16 +200,16 @@ const ResourceDetailPage = () => {
 
         {/* Study Suggestions Section - Full Width Below Main Content */}
         {resource.studySuggestions && resource.studySuggestions.length > 0 && (
-          <div className="mt-12">
-            <div className="bg-white rounded-xl shadow-md p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-8">Study Suggestions</h2>
+          <div className="mt-8">
+            <div className="bg-white rounded-xl shadow-md p-6">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Study Suggestions</h2>
               
-              <div className="space-y-8">
+              <div className="space-y-6">
                 {/* High Priority */}
-                {resource.studySuggestions.some(s => s.priority === 'High') && (
+                {resource.studySuggestions.filter(s => s.priority === 'High').length > 0 && (
                   <div>
-                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">High Priority</h3>
-                    <div className="flex flex-wrap gap-3">
+                    <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">High Priority</h3>
+                    <div className="flex flex-wrap gap-2">
                       {resource.studySuggestions.filter(s => s.priority === 'High').map((s, i) => (
                         <span 
                           key={i} 
@@ -223,10 +223,10 @@ const ResourceDetailPage = () => {
                 )}
 
                 {/* Medium Priority */}
-                {resource.studySuggestions.some(s => s.priority === 'Medium') && (
+                {resource.studySuggestions.filter(s => s.priority === 'Medium').length > 0 && (
                   <div>
-                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Medium Priority</h3>
-                    <div className="flex flex-wrap gap-3">
+                    <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Medium Priority</h3>
+                    <div className="flex flex-wrap gap-2">
                       {resource.studySuggestions.filter(s => s.priority === 'Medium').map((s, i) => (
                         <span 
                           key={i} 
@@ -240,10 +240,10 @@ const ResourceDetailPage = () => {
                 )}
 
                 {/* Low Priority */}
-                {resource.studySuggestions.some(s => s.priority === 'Low') && (
+                {resource.studySuggestions.filter(s => s.priority === 'Low').length > 0 && (
                   <div>
-                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Low Priority</h3>
-                    <div className="flex flex-wrap gap-3">
+                    <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">Low Priority</h3>
+                    <div className="flex flex-wrap gap-2">
                       {resource.studySuggestions.filter(s => s.priority === 'Low').map((s, i) => (
                         <span 
                           key={i} 
