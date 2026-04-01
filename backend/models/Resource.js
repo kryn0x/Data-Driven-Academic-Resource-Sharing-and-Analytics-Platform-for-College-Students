@@ -29,6 +29,15 @@ const resourceSchema = new mongoose.Schema({
   keywords: [{
     type: String
   }],
+  studySuggestions: [{
+    topic: {
+      type: String
+    },
+    priority: {
+      type: String,
+      enum: ['High', 'Medium', 'Low']
+    }
+  }],
   uploadDate: {
     type: Date,
     default: Date.now

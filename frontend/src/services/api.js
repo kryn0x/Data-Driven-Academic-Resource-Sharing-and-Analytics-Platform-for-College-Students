@@ -19,4 +19,8 @@ export const uploadResource = (formData) => {
   });
 };
 
+export const deleteResource = (id) => {
+  return api.delete(`/resources/${id}`);
+};
+
 export default api;

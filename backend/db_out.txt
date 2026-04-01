@@ -1,0 +1,47 @@
+[
+  {
+    "_id": "69cd39c5cd626557c2db8c4c",
+    "title": "OS- End Sem",
+    "subject": "OS",
+    "year": 2025,
+    "type": "Assignment",
+    "filename": "1775057348890-Assignment 1.pdf",
+    "keywords": [
+      "time",
+      "process",
+      "system",
+      "explain",
+      "operating"
+    ],
+    "studySuggestions": [
+      {
+        "topic": "Time",
+        "priority": "High",
+        "_id": "69cd39c5cd626557c2db8c4d"
+      },
+      {
+        "topic": "Process Scheduling",
+        "priority": "High",
+        "_id": "69cd39c5cd626557c2db8c4e"
+      },
+      {
+        "topic": "System",
+        "priority": "Medium",
+        "_id": "69cd39c5cd626557c2db8c4f"
+      },
+      {
+        "topic": "Explain",
+        "priority": "Medium",
+        "_id": "69cd39c5cd626557c2db8c50"
+      },
+      {
+        "topic": "Operating",
+        "priority": "Low",
+        "_id": "69cd39c5cd626557c2db8c51"
+      }
+    ],
+    "fileSize": 197704,
+    "uploadDate": "2026-04-01T15:29:09.354Z",
+    "__v": 0
+  }
+]

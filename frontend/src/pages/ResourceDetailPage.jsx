@@ -1,12 +1,25 @@
 import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { getResources } from '../services/api';
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import { getResources, deleteResource } from '../services/api';
 
 const ResourceDetailPage = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [resource, setResource] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+
+  const handleDelete = async () => {
+    if (window.confirm('Are you sure you want to delete this resource?')) {
+      try {
+        await deleteResource(id);
+        navigate('/');
+      } catch (err) {
+        alert('Failed to delete resource');
+        console.error('Delete error:', err);
+      }
+    }
+  };
 
   useEffect(() => {
     fetchResource();
@@ -119,7 +132,7 @@ const ResourceDetailPage = () => {
                 </div>
               )}
 
-              <div className="border-t border-gray-200 pt-6">
+              <div className="border-t border-gray-200 pt-6 flex justify-between items-center">
                 <a 
                   href={`http://localhost:5000/uploads/${resource.filename}`} 
                   target="_blank" 
@@ -131,6 +144,16 @@ const ResourceDetailPage = () => {
                   </svg>
                   View PDF
                 </a>
+                
+                <button
+                  onClick={handleDelete}
+                  className="inline-flex items-center bg-red-50 text-red-600 px-4 py-3 rounded-lg hover:bg-red-100 transition-colors duration-200 font-medium"
+                >
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                  Delete Resource
+                </button>
               </div>
             </div>
           </div>
@@ -151,23 +174,49 @@ const ResourceDetailPage = () => {
             {/* Suggestions */}
             <div className="bg-white rounded-xl shadow-md p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Study Suggestions</h3>
-              <div className="space-y-3">
-                <div className="p-3 bg-blue-50 rounded-lg">
-                  <p className="text-sm text-blue-800">
-                    Focus on the top keywords identified in this paper for effective preparation.
-                  </p>
+              {resource.studySuggestions && resource.studySuggestions.length > 0 ? (
+                <div className="space-y-5">
+                  {/* High Priority */}
+                  {resource.studySuggestions.some(s => s.priority === 'High') && (
+                    <div>
+                      <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">High Priority</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {resource.studySuggestions.filter(s => s.priority === 'High').map((s, i) => (
+                          <span key={i} className="bg-red-50 text-red-700 border border-red-200 px-3 py-1.5 rounded-full text-sm font-medium shadow-sm">🔥 {s.topic}</span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Medium Priority */}
+                  {resource.studySuggestions.some(s => s.priority === 'Medium') && (
+                    <div>
+                      <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Medium Priority</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {resource.studySuggestions.filter(s => s.priority === 'Medium').map((s, i) => (
+                          <span key={i} className="bg-orange-50 text-orange-700 border border-orange-200 px-3 py-1.5 rounded-full text-sm font-medium shadow-sm">⚡ {s.topic}</span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Low Priority */}
+                  {resource.studySuggestions.some(s => s.priority === 'Low') && (
+                    <div>
+                      <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Low Priority</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {resource.studySuggestions.filter(s => s.priority === 'Low').map((s, i) => (
+                          <span key={i} className="bg-gray-100 text-gray-700 border border-gray-200 px-3 py-1.5 rounded-full text-sm font-medium shadow-sm">{s.topic}</span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <div className="p-3 bg-green-50 rounded-lg">
-                  <p className="text-sm text-green-800">
-                    Review similar papers from the same subject and year for pattern recognition.
-                  </p>
+              ) : (
+                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                  <p className="text-sm text-gray-500">No specific study suggestions available for this resource.</p>
                 </div>
-                <div className="p-3 bg-purple-50 rounded-lg">
-                  <p className="text-sm text-purple-800">
-                    Create study notes based on the extracted keywords and topics.
-                  </p>
-                </div>
-              </div>
+              )}
             </div>
 
             {/* Resource Info */}
