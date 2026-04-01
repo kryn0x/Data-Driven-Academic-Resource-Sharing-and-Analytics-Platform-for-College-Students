@@ -24,8 +24,10 @@ const LandingPage = () => {
       setResources(response.data);
       setError('');
     } catch (err) {
-      setError('Failed to load resources');
+      const errorMessage = err.response?.data?.message || err.message || 'Failed to load resources';
+      setError(`Error: ${errorMessage}. Make sure the backend is running.`);
       console.error('Error fetching resources:', err);
+      console.error('API URL:', import.meta.env.VITE_API_URL || 'http://localhost:5000/api');
     } finally {
       setLoading(false);
     }
