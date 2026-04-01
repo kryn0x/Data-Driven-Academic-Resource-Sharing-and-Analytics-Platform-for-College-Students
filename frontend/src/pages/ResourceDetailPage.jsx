@@ -171,54 +171,6 @@ const ResourceDetailPage = () => {
               </p>
             </div>
 
-            {/* Suggestions */}
-            <div className="bg-white rounded-xl shadow-md p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Study Suggestions</h3>
-              {resource.studySuggestions && resource.studySuggestions.length > 0 ? (
-                <div className="space-y-5">
-                  {/* High Priority */}
-                  {resource.studySuggestions.some(s => s.priority === 'High') && (
-                    <div>
-                      <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">High Priority</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {resource.studySuggestions.filter(s => s.priority === 'High').map((s, i) => (
-                          <span key={i} className="bg-red-50 text-red-700 border border-red-200 px-3 py-1.5 rounded-full text-sm font-medium shadow-sm">🔥 {s.topic}</span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Medium Priority */}
-                  {resource.studySuggestions.some(s => s.priority === 'Medium') && (
-                    <div>
-                      <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Medium Priority</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {resource.studySuggestions.filter(s => s.priority === 'Medium').map((s, i) => (
-                          <span key={i} className="bg-orange-50 text-orange-700 border border-orange-200 px-3 py-1.5 rounded-full text-sm font-medium shadow-sm">⚡ {s.topic}</span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* Low Priority */}
-                  {resource.studySuggestions.some(s => s.priority === 'Low') && (
-                    <div>
-                      <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">Low Priority</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {resource.studySuggestions.filter(s => s.priority === 'Low').map((s, i) => (
-                          <span key={i} className="bg-gray-100 text-gray-700 border border-gray-200 px-3 py-1.5 rounded-full text-sm font-medium shadow-sm">{s.topic}</span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ) : (
-                <div className="text-center p-4 bg-gray-50 rounded-lg">
-                  <p className="text-sm text-gray-500">No specific study suggestions available for this resource.</p>
-                </div>
-              )}
-            </div>
-
             {/* Resource Info */}
             <div className="bg-white rounded-xl shadow-md p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Resource Info</h3>
@@ -245,6 +197,68 @@ const ResourceDetailPage = () => {
             </div>
           </div>
         </div>
+
+        {/* Study Suggestions Section - Full Width Below Main Content */}
+        {resource.studySuggestions && resource.studySuggestions.length > 0 && (
+          <div className="mt-12">
+            <div className="bg-white rounded-xl shadow-md p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-8">Study Suggestions</h2>
+              
+              <div className="space-y-8">
+                {/* High Priority */}
+                {resource.studySuggestions.some(s => s.priority === 'High') && (
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">High Priority</h3>
+                    <div className="flex flex-wrap gap-3">
+                      {resource.studySuggestions.filter(s => s.priority === 'High').map((s, i) => (
+                        <span 
+                          key={i} 
+                          className="bg-red-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:bg-red-600 transition-colors duration-200"
+                        >
+                          {s.topic}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Medium Priority */}
+                {resource.studySuggestions.some(s => s.priority === 'Medium') && (
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Medium Priority</h3>
+                    <div className="flex flex-wrap gap-3">
+                      {resource.studySuggestions.filter(s => s.priority === 'Medium').map((s, i) => (
+                        <span 
+                          key={i} 
+                          className="bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:bg-orange-600 transition-colors duration-200"
+                        >
+                          {s.topic}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Low Priority */}
+                {resource.studySuggestions.some(s => s.priority === 'Low') && (
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-4">Low Priority</h3>
+                    <div className="flex flex-wrap gap-3">
+                      {resource.studySuggestions.filter(s => s.priority === 'Low').map((s, i) => (
+                        <span 
+                          key={i} 
+                          className="bg-gray-400 text-white px-4 py-2 rounded-full text-sm font-medium shadow-sm hover:bg-gray-500 transition-colors duration-200"
+                        >
+                          {s.topic}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </main>
     </div>
   );
