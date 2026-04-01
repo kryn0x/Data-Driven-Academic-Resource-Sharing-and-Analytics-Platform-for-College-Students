@@ -5,14 +5,19 @@ import connectDB from './config/database.js';
 import resourceRoutes from './routes/resources.js';
 import authRoutes from './routes/auth.js';
 
+console.log('Starting server...');
+
 // Load environment variables
 dotenv.config();
+console.log('Environment variables loaded');
 
 // Connect to MongoDB
 connectDB();
+console.log('Database connection initiated');
 
 // Initialize Express app
 const app = express();
+console.log('Express app initialized');
 
 // Middleware
 const allowedOrigins = [
