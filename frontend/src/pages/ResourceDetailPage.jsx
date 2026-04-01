@@ -160,17 +160,6 @@ const ResourceDetailPage = () => {
 
           {/* Right Column - Analytics */}
           <div className="space-y-6">
-            {/* Top Keywords Analytics */}
-            <div className="bg-white rounded-xl shadow-md p-6">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Top Keywords</h3>
-              <div className="bg-gray-100 h-32 rounded-lg flex items-center justify-center mb-3">
-                <p className="text-sm text-gray-500">Chart visualization</p>
-              </div>
-              <p className="text-xs text-gray-600">
-                Keyword frequency analysis helps identify important topics.
-              </p>
-            </div>
-
             {/* Resource Info */}
             <div className="bg-white rounded-xl shadow-md p-6">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">Resource Info</h3>
