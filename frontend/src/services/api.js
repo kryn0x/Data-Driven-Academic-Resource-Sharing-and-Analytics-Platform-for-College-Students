@@ -6,7 +6,16 @@ const api = axios.create({
   baseURL: API_BASE_URL,
 });
 
-// API functions - to be implemented
+// Add token to requests if available
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+// Resources API
 export const getResources = () => {
   return api.get('/resources');
 };
@@ -21,6 +30,15 @@ export const uploadResource = (formData) => {
 
 export const deleteResource = (id) => {
   return api.delete(`/resources/${id}`);
+};
+
+// Auth API
+export const register = (userData) => {
+  return api.post('/auth/register', userData);
+};
+
+export const login = (credentials) => {
+  return api.post('/auth/login', credentials);
 };
 
 export default api;

@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './config/database.js';
 import resourceRoutes from './routes/resources.js';
+import authRoutes from './routes/auth.js';
 
 // Load environment variables
 dotenv.config();
@@ -23,6 +24,7 @@ app.use('/uploads', express.static('uploads'));
 
 // Routes
 app.use('/api/resources', resourceRoutes);
+app.use('/api/auth', authRoutes);
 
 // Basic health check
 app.get('/', (req, res) => {
